@@ -4,14 +4,18 @@ spec:
   autoUpdate:
     enabled: false
     schedule: ""
+  
   cluster:
+    clusterName: Jenkins-X-Cluster   # cluster name from when you created the eks cluster
+    environmentGitOwner: IndusVR #GitHub Org
+    environmentGitPublic: true #Repos are public
+    provider: eks
+    region: us-west-2
     devEnvApprovers:
     - todo
-    environmentGitOwner: todo
     gitKind: github
     gitName: github
     gitServer: https://github.com
-    provider: eks
   environments:
   - key: dev
   - key: staging
@@ -26,5 +30,9 @@ spec:
       production: false
   repository: nexus
   secretStorage: vault
-  vault: {}
+  vault: 
+       aws:
+       autoCreate: true
+       iamUserName: Indrajit
+ disableURLDiscovery: true
   webhook: lighthouse
